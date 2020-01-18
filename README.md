@@ -30,5 +30,5 @@ Each rover will be finished sequentially, which means that the second rover won'
 ### Tech
 
 * Language : C#
-* Framework: .Net Core 2.2# MarsRoverApp
+* Framework: .Net Core 2.2
 
