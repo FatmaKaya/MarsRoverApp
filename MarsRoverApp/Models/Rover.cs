@@ -52,7 +52,7 @@ namespace MarsRoverApp.Models
 
         private void MoveForward()
         {
-            if ( RoverPosition.YCoordinate < RoverPlateau.PlateauPosition.YCoordinate && RoverPosition.XCoordinate < RoverPlateau.PlateauPosition.XCoordinate)
+            if ( RoverPosition.YCoordinate <= RoverPlateau.PlateauPosition.YCoordinate && RoverPosition.XCoordinate <= RoverPlateau.PlateauPosition.XCoordinate)
             {
                 switch (RoverDirection)
                 {
