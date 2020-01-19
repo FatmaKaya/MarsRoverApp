@@ -22,23 +22,31 @@ namespace MarsRoverApp.Models
 
         public void Process(string commands)
         {
-            foreach (Command command in commands)
+            if (String.IsNullOrEmpty(commands))
             {
-                switch (command)
+                Console.WriteLine("No commands!!");
+            }
+            else
+            {
+                foreach (Command command in commands)
                 {
-                    case Command.Left:
-                        TurnLeft();
-                        break;
-                    case Command.Right:
-                        TurnRight();
-                        break;
-                    case Command.Move:
-                        MoveForward();
-                        break;
-                    default:
-                        throw new ArgumentException(string.Format("Invalid value: {0}", command.ToString()));
+                    switch (command)
+                    {
+                        case Command.Left:
+                            TurnLeft();
+                            break;
+                        case Command.Right:
+                            TurnRight();
+                            break;
+                        case Command.Move:
+                            MoveForward();
+                            break;
+                        default:
+                            throw new ArgumentException(string.Format("Invalid value: {0}", command.ToString()));
+                    }
                 }
             }
+           
         }
         private void TurnLeft()
         {
