@@ -52,22 +52,34 @@ namespace MarsRoverApp.Models
 
         private void MoveForward()
         {
-            if (RoverDirection == Directions.N)
+            if ( RoverPosition.YCoordinate < RoverPlateau.PlateauPosition.YCoordinate && RoverPosition.XCoordinate < RoverPlateau.PlateauPosition.XCoordinate)
             {
-                RoverPosition.YCoordinate++;
+                switch (RoverDirection)
+                {
+                    case Directions.N:
+                        RoverPosition.YCoordinate++;
+                        break;
+                    case Directions.E:
+                        RoverPosition.XCoordinate++;
+                        break;
+                    case Directions.S:
+                        RoverPosition.YCoordinate--;
+                        break;
+                    case Directions.W:
+                        RoverPosition.XCoordinate--;
+                        break;
+                    default:
+                        RoverPosition = RoverPosition;
+                        break;
+
+                }
             }
-            else if (RoverDirection == Directions.E)
+            else
             {
-                RoverPosition.XCoordinate++;
+                Console.WriteLine("Movement stopped because Rover went out of Plateau!");
             }
-            else if (RoverDirection == Directions.S)
-            {
-                RoverPosition.YCoordinate--;
-            }
-            else if (RoverDirection == Directions.W)
-            {
-                RoverPosition.XCoordinate--;
-            }
+            
+           
         }
 
         public string CurrentLocation()
